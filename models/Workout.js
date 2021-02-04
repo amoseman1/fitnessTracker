@@ -1,11 +1,16 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
-const WorkoutSchema = new Schema({
-    day: Date.now,
+const WorkoutSchema = new mongoose.Schema({
+    day: {
+        type: Date,
+        default: Date.now,
+    },
     exercises: [
         {
-            type: String,
+            type: {
+                Type: String,
+                required: true, "Please enter an exercise",
+            },
             name: String,
             duration: {
                 type: Number,
