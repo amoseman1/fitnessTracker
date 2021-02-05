@@ -1,8 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-//const { Workout } = require("./models/index");
-//sends the server to the index which requires the model/s
+
 const db = require("./models");
 
 const app = express();

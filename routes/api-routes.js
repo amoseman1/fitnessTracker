@@ -1,4 +1,4 @@
-const { Workout } = require("../models");
+//const { Workout } = require("../models");
 const router = require('express').Router();
 
 
@@ -14,7 +14,7 @@ router.get("/api/workouts", (req, res) => {
         });
 });
 
-router.get("api/workouts/range", (req, res) => {
+router.get("/api/workouts/range", (req, res) => {
     db.Workout.findAll({}).limit(7)
         .then(data => {
             res.json(data);
