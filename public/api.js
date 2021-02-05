@@ -2,6 +2,7 @@ const API = {
   async getLastWorkout() {
     let res;
     try {
+      //if theres no object after the URl, it assumes its a GET
       res = await fetch("/api/workouts");
     } catch (err) {
       console.log(err)
