@@ -1,11 +1,11 @@
-//const { Workout } = require("../models");
+const { Workout } = require("../models");
 const router = require('express').Router();
 
 
 
 
 router.get("/api/workouts", (req, res) => {
-    db.Workout.findAll({}).sort({ date: -1 })
+    Workout.find({}).sort({ date: -1 })
         .then(data => {
             res.json(data);
         })
@@ -15,7 +15,7 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-    db.Workout.findAll({}).limit(7)
+    Workout.find({}).limit(7)
         .then(data => {
             res.json(data);
         })
@@ -24,8 +24,8 @@ router.get("/api/workouts/range", (req, res) => {
         });
 })
 
-router.post("/api/workpouts", ({ body }, res) => {
-    db.Workout.create(body)
+router.post("/api/workouts", ({ body }, res) => {
+    Workout.create(body)
         .then(data => {
             res.json(data);
         })
@@ -34,8 +34,8 @@ router.post("/api/workpouts", ({ body }, res) => {
         });
 });
 
-router.put("/api/update/:id", (req, res) => {
-    db.Workout.findByIdAndUpdate(
+router.put("/api/workouts/:id", (req, res) => {
+    Workout.findByIdAndUpdate(
 
         req.params.id,
 
@@ -43,15 +43,12 @@ router.put("/api/update/:id", (req, res) => {
             $push: {
                 exercises: req.body
             }
-        },
-        (error, data) => {
-            if (error) {
-                res.send(error);
-            } else {
-                res.json(data); //what else do i need to do with this data?
-            }
-        }
-    );
+        }).then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;
