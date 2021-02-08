@@ -15,6 +15,11 @@ const WorkoutSchema = new mongoose.Schema({
                 type: String,
                 required: true
             },
+            duration: {
+                type: Number,
+                trim: true,
+                required: true
+            },
             weight: {
                 type: Number,
                 trim: true,
@@ -26,11 +31,6 @@ const WorkoutSchema = new mongoose.Schema({
             sets: {
                 type: Number,
                 trim: true,
-            },
-            duration: {
-                type: Number,
-                trim: true,
-                required: true
             },
             distance: {
                 type: Number,

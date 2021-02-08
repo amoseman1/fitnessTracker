@@ -17,21 +17,15 @@ app.use(express.static("public"));
 app.use(require("./routes/html-routes"));
 app.use(require("./routes/api-routes"));
 
-
-
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnessTrackerdb", { useNewUrlParser: true });
-
-
-
-//is this needed here? should it go in the seeds.js file?
-// Workout.create(workoutSeed).then(results => {
-//     console.log(results);
-// })
-//     .catch(({ message }) => {
-//         console.log(message)
-//     });
-
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/fitnessTrackerdb',
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false
+    }
+);
 
 app.listen(3000, () => {
     console.log("App running on port 3000!");
