@@ -1,9 +1,6 @@
 # Fitness Tracker
 
 ![Liscense](https://img.shields.io/badge/license-MIT-blue.svg)
-Deployed App: [Fitness Tracker](https://github.com/amoseman1/fitnessTracker)
-<img src="public/dashboard.png">
-<img src="public/tracker.png">
 
 ## Description
 
@@ -19,7 +16,10 @@ npm i - to install dependencies, and npm start - to connect to the server,
 
 ## Usage
 
-see the photos below
+Deployed App: [Fitness Tracker](https://github.com/amoseman1/fitnessTracker)
+<br>
+<img src="public/dashboard.png">
+<img src="public/tracker.png">
 
 ## Liscense
 
