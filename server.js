@@ -25,8 +25,9 @@ mongoose.connect(
         useCreateIndex: true,
         useFindAndModify: false
     }
-);
+).then(() => console.log("Database Connected Successfully"))
+    .catch(err => console.log(err));;
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("App running on port 3000!");
 });
